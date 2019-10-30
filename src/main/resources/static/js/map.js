@@ -10,7 +10,6 @@ var map = (function() {
         bounds = new google.maps.LatLngBounds();
         initMap();
         m.forEach(function (marker) {
-            alert(marker)
             var position = new google.maps.LatLng(marker.location.latitude, marker.location.longitude);
 
             markers.push(
