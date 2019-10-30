@@ -2,11 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=en"></script>
     <script src="js/front.js"></script>
+    <script src="js/map.js"></script>
     <title>Airports</title>
 </head>
-<body onload="module.airportByName()">
+<body>
 
 <div class="input-group flex-nowrap">
     <div class="input-group-prepend">
@@ -15,8 +17,23 @@
     <input id = "ciudad" type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="addon-wrapping">
     <button type="button" class="btn btn-primary" onclick="module.airportByName($('#ciudad').val())">Buscar</button>
 </div>
+<table id="datos" class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nombre Aeropuerto</th>
+        <th scope="col">Ciudad </th>
+        <th scope="col">Codigo Pais</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe id="map" frameborder="0"
+            style="border:0" allowfullscreen></iframe>
+</div>
 
-<div > ESTA CARGAAA </div>
 
 </body>
 </html>

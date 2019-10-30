@@ -5,20 +5,33 @@ var module =(function(){
         allBlueprints.then(
             function (data) {
                 responseAll = data;
-                alert(data);
+
+                if(responseAll != null){
+                    map.plotMarkers(responseAll)
+                    $("#datos tbody").empty();
+                    responseAll.map(function(actual){
+
+                        $("#datos tbody").append(
+                            "<tr>"+
+                            "<td>"+ actual.airportId + "</td>" +
+                            "<td>"+ actual.name+ "</td>" +
+                            "<td>"+ actual.city+ "</td>" +
+                            "<td>"+ actual.countryCode+ "</td>" +
+                            "</tr>"
+                        );
+                    })
+                    //alert(data)
+                }
+
             },
             function () {
                 alert("$.get failed!");
             }
             );
-            if(responseAll != null){
-                responseAll.map(function(actual){
-                                    console.log("Code: "+actual.getCode());
-                                    console.log("Name: "+actual.getName());
-                                    console.log("City: "+actual.getCity());
-                                    console.log("CodeCountry: "+actual.getCountryCode());
-                                })
-            }
+
+
+
+
 
             return responseAll;
         };
